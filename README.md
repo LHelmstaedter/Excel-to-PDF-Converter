@@ -1,20 +1,30 @@
-ExcelPdfExporter
+# ExcelPdfExporter
 
-Kleines Windows-Tool, das aus einer Excel-Datei für jeden Wert einer Spalte ein eigenes PDF erzeugt.
+Windows-Tool: Gruppiert ein Excel-Tabellenblatt nach den Werten einer Spalte (Standard: `N`)
+und erzeugt für jede Gruppe ein eigenes PDF (AutoFilter + PDF-Export).
 
-⚠️ Wichtig: Das Tool arbeitet derzeit ausschließlich mit Spalte N. Es durchläuft alle unterschiedlichen Werte in Spalte N und exportiert für jeden Wert die Druckansicht des Blatts als PDF. Eine andere Spalte ist aktuell nicht auswählbar.
+**Voraussetzungen:** Windows, Microsoft Excel, Python 3.9+
 
-Was passiert genau?
-Excel-Datei laden (Drag & Drop oder Dateiauswahl).
-Das Tool liest die eindeutigen Werte aus Spalte N (erste Zeile = Kopfzeile).
-Für jeden Wert wird die Tabelle per AutoFilter gefiltert und in der Druckansicht (Druckbereich/Seiteneinrichtung des Blatts) als PDF gespeichert.
+## Start
 
-Verwendet wird das erste Blatt mit festgelegtem Druckbereich, sonst das aktive Blatt. Die Originaldatei bleibt unverändert.
-
-
-Voraussetzungen:
-Windows, Microsoft Excel, Python 3.9+
-
-Start
+```powershell
 pip install -r requirements.txt
 python app.pyw
+```
+
+## EXE bauen (ohne Konsolenfenster)
+
+```powershell
+.\build.ps1
+```
+
+Ergebnis: `dist\ExcelPdfExporter.exe`
+
+## Ausgabestruktur
+
+```
+<Ausgabeordner>/<Prefix>/<Prefix><Term>/<Gruppe>.pdf
+```
+
+`Prefix` = erstes Wort des Gruppenwerts, `Term` = Semesterkürzel wie `23W`/`24S`
+(ohne Term: `<Prefix>/NO_TERM/`). Standard-Ausgabeordner: `pdf_out` neben der Excel-Datei.

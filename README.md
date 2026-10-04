@@ -11,11 +11,8 @@ Für jeden Wert wird die Tabelle per AutoFilter gefiltert und in der Druckansich
 
 Verwendet wird das erste Blatt mit festgelegtem Druckbereich, sonst das aktive Blatt. Die Originaldatei bleibt unverändert.
 
-Ausgabestruktur
-<Ausgabeordner>/<Prefix>/<Prefix><Term>/<Gruppe>.pdf
 
-Voraussetzungen
-
+Voraussetzungen:
 Windows, Microsoft Excel, Python 3.9+
 
 Start
